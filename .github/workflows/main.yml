@@ -1,0 +1,21 @@
+name: CI Workflow
+
+# Ye workflow tab chalega jab aap main branch par push karenge
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Repository se code ko runner machine par lane ke liye
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Ek simple command run karne ke liye
+    - name: Run a one-line script
+      run: echo "Hello, world! Your workflow is running successfully."
